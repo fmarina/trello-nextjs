@@ -1,19 +1,22 @@
-import type { AppProps } from 'next/app';
+import { GetStaticPropsContext } from 'next';
 import { NextIntlProvider } from 'next-intl';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
 
 import '../styles/globals.css';
-import { GetStaticPropsContext } from 'next';
+import { theme } from '../theme';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <NextIntlProvider messages={pageProps.messages}>
-      <Component {...pageProps} />
-    </NextIntlProvider>
+    <ThemeProvider theme={theme}>
+      <NextIntlProvider messages={pageProps.messages}>
+        <Component {...pageProps} />
+      </NextIntlProvider>
+    </ThemeProvider>
   );
 }
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  console.log(locale);
   return {
     props: {
       messages: (await import(`../locales/${locale}.json`)).default,
