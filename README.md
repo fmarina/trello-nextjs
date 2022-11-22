@@ -5,9 +5,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
+```
+
+Storybook, run the development server:
+
+```bash
+yarn storybook
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -17,6 +21,85 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Table of Contents
+
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Commits Conventions](#commit-conventions)
+
+## Project Structure
+
+```
+.
+├── .github/
+├── .husky/
+├── .storybook/
+├── .vscode/
+├── assets/
+├── components/
+├── features/
+├──  locales/
+│   ├── en.json
+│   ├── es.json
+├── pages/
+├── public/
+├── routes/
+├── theme/
+├── .gitignore
+├── .eslintrc
+├── .prettierrc
+├── commitlint.config.js
+├── next.env.d.ts
+├── next.config.js
+├── package.json
+├── README.md
+├── tsconfig.json
+└── yarn.lock
+```
+
+## Feature Structure
+
+```
+├── features
+│ └── myFeature
+│   ├── components/
+│   ├── hooks/
+│   ├── myFeature.test.ts
+│   ├── types.ts
+│   └── index.ts
+```
+
+#### What does a feature export?
+
+A feature should export anything that is meant to be consumed from outside the feature
+IE:
+
+- components (if they're meant to be used outside the feature)
+- hooks (if they're meant to be used outside the feature)
+- helpers (if they're meant to be used outside the feature)
+
+## Component Structure
+
+```
+├── MyComponent
+│ ├── index.ts
+│ ├── MyComponent.ts
+│ ├── MyComponent.styles.ts
+│ ├── MyComponent.test.ts
+```
+
+## Commits convention
+
+- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- docs: Documentation only changes
+- feat: A new feature
+- fix: A bug fix
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- test: Adding missing tests or correcting existing tests
 
 ## Learn More
 
