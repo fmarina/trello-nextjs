@@ -1,14 +1,14 @@
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 
-import styles from '../../styles/Home.module.css';
+import { Title } from './Example.styles';
 
 const Example = () => {
   const t = useTranslations('Home');
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Example {t('hello')}</h1>
+    <div>
+      <Title>{t('hello')}</Title>
     </div>
   );
 };
